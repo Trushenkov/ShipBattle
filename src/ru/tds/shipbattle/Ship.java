@@ -4,6 +4,7 @@ package ru.tds.shipbattle;
  * Класс для представления объекта "Корабль".
  */
 public class Ship {
+
     private int[] local;
     private int amountOfHit=0;
 
@@ -20,7 +21,6 @@ public class Ship {
      * с местоположением корабля. В зависимости от попаданий и их количества, посылает сообщения об этом пользователю
      *
      * @param string координаты игрока о выстреле
-     * @return строка с результатом состояния корабля
      */
     public void check(String string) {
         int fire = Integer.parseInt(string);
