@@ -1,44 +1,47 @@
 package ru.tds.shipbattle;
 
+import java.util.ArrayList;
+
 /**
  * Класс для представления объекта "Корабль".
+ *
+ * @author Trushenkov Dmitry 15ИТ18
  */
 public class Ship {
 
-    private int[] local;
-    private int amountOfHit=0;
+    private ArrayList<String> location;
 
-    public void setLocal(int[] local) {
-        this.local = local;
+    public void setLocation(ArrayList<String> location) {
+        this.location = location;
     }
 
-    public Ship(int[] local) {
-        this.local = local;
+    public ArrayList<String> getLocation() {
+        return location;
     }
 
     /**
      * Метод, который принимает в качестве параметра координаты выстрела игрока и сравнивает их
      * с местоположением корабля. В зависимости от попаданий и их количества, посылает сообщения об этом пользователю
      *
-     * @param string координаты игрока о выстреле
+     * @param shot координаты игрока о выстреле
      */
-    public void check(String string) {
-        int fire = Integer.parseInt(string);
-        for (int partOfShip: local) {
-            if (fire == partOfShip&&fire<3) {
-                System.out.println("Ранил");
-                amountOfHit++;
-                return;
+    public String check(String shot) {
+        String result;
+        int index = location.indexOf(shot);
+        if (index != -1) {
+            location.remove(index);
+            result = "Ранен";
+            if (location.isEmpty()) {
+                result = "Потоплен";
             }
-
-            if (fire != partOfShip) {
-                System.out.println("Мимо");
-                return;
-            }
-            if (amountOfHit == 3) {
-                System.out.println("Потопил");
-                return;
-            }
+        } else {
+            result = "Мимо";
         }
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Корабль находится на координатах " + location;
     }
 }
