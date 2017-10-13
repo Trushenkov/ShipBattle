@@ -8,7 +8,6 @@ import java.util.ArrayList;
  * @author Trushenkov Dmitry 15ИТ18
  */
 public class Ship {
-
     private ArrayList<String> location;
 
     public void setLocation(ArrayList<String> location) {
@@ -23,19 +22,19 @@ public class Ship {
      * Метод, который принимает в качестве параметра координаты выстрела игрока и сравнивает их
      * с местоположением корабля. В зависимости от попаданий и их количества, посылает сообщения об этом пользователю
      *
-     * @param shot координаты игрока о выстреле
+     * @param shot координата выстрела игрока
+     * @return "Попал", если координата выстрела игрока и местоположения корабля совпадают. "Мимо", если  координата
+     * выстрела игрока и местоположения корабля не совпадают. "Потоплен", если  координата выстрела игрока и
+     * местоположения корабля совпадают и ArrayList с местоположением корабля пустой (то есть пользователь попал в корабль  3 раза).
      */
     public String check(String shot) {
-        String result;
+        String result = "Мимо";
         int index = location.indexOf(shot);
         if (index != -1) {
             location.remove(index);
             result = "Ранен";
-            if (location.isEmpty()) {
-                result = "Потоплен";
-            }
-        } else {
-            result = "Мимо";
+        }if (location.isEmpty()) {
+            result = "Потоплен";
         }
         return result;
     }
