@@ -11,23 +11,25 @@ import java.util.Scanner;
 public class Game {
 
     public static void main(String[] args) {
-        ArrayList<String> localOfShip = new ArrayList<>();
-        initShipLocation(localOfShip);
+        ArrayList<String> localOfShip = initShipLocation();
         Ship ship = new Ship();
         ship.setLocation(localOfShip);
-        System.out.println(ship);
-        countOfTry(ship);
+        startGameAndCountOfTry(ship);
+
     }
 
     /**
      * Метод для заполнения ArrayLista с местоположением корабля.
      *
-     * @param arrayList пустой ArrayList
+     * @return ArrayList  с местоположением корабля.
      */
-    public static void initShipLocation(ArrayList<String> arrayList) {
-        arrayList.add(String.valueOf((int) ((Math.random() * 7))));
-        arrayList.add(String.valueOf((Integer.parseInt(arrayList.get(0))) + 1));
-        arrayList.add(String.valueOf(Integer.parseInt(arrayList.get(1)) + 1));
+    public static ArrayList initShipLocation() {
+        ArrayList <String> location = new ArrayList<>();
+        int number =(int) Math.random() * 7;
+        location.add(String.valueOf(number));
+        location.add(String.valueOf(number +1 ));
+        location.add(String.valueOf(number +2 ));
+        return location;
     }
 
     /**
@@ -43,11 +45,12 @@ public class Game {
     }
 
     /**
-     * Метод для подсчета количества попыток, понадобившихся пользователю для того, чтобы потопить корабль.
+     * Метод для общения пользователя с компьютером,которое реализовано с помощью цикла,
+     * а также для подсчета количества попыток, понадобившихся пользователю для того, чтобы потопить корабль.
      *
      * @param ship корабль, который нужно потопить.
      */
-    public static void countOfTry(Ship ship) {
+    public static void startGameAndCountOfTry(Ship ship) {
         int countOfTry = 0;
         while (!ship.getLocation().isEmpty()) {
             System.out.println(ship.check(input()));
