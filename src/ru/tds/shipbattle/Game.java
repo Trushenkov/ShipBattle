@@ -14,7 +14,12 @@ public class Game {
         ArrayList<String> localOfShip = initShipLocation();
         Ship ship = new Ship();
         ship.setLocation(localOfShip);
-        startGameAndCountOfTry(ship);
+        int countOfTry = 0;
+        while (!ship.getLocation().isEmpty()) {
+            System.out.println(ship.check(input()));
+            countOfTry++;
+        }
+        System.out.println("Вы победили! Количество попыток: " + countOfTry);
 
     }
 
@@ -42,20 +47,5 @@ public class Game {
         System.out.println("Введите координаты выстрела от 0 до 9: ");
         String shot = sc.next();
         return shot;
-    }
-
-    /**
-     * Метод для общения пользователя с компьютером,которое реализовано с помощью цикла,
-     * а также для подсчета количества попыток, понадобившихся пользователю для того, чтобы потопить корабль.
-     *
-     * @param ship корабль, который нужно потопить.
-     */
-    public static void startGameAndCountOfTry(Ship ship) {
-        int countOfTry = 0;
-        while (!ship.getLocation().isEmpty()) {
-            System.out.println(ship.check(input()));
-            countOfTry++;
-        }
-        System.out.println("Вы победили! Количество попыток: " + countOfTry);
     }
 }
