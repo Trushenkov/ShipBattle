@@ -33,7 +33,8 @@ public class Ship {
         if (index != -1) {
             location.remove(index);
             result = "Ранен";
-        }if (location.isEmpty()) {
+        }
+        if (location.isEmpty()) {
             result = "Потоплен";
         }
         return result;
