@@ -11,12 +11,12 @@ import java.util.Scanner;
 public class Game {
 
     public static void main(String[] args) {
-        ArrayList<String> localOfShip = initShipLocation();
+        ArrayList<String> locationOfShip = shipLocation();
         Ship ship = new Ship();
-        ship.setLocation(localOfShip);
+        ship.setLocation(locationOfShip);
         int countOfTry = 0;
         while (!ship.getLocation().isEmpty()) {
-            System.out.println(ship.check(input()));
+            System.out.println(ship.checkForHit(input()));
             countOfTry++;
         }
         System.out.println("Вы победили! Количество попыток: " + countOfTry);
@@ -28,7 +28,7 @@ public class Game {
      *
      * @return ArrayList  с местоположением корабля.
      */
-    public static ArrayList initShipLocation() {
+    public static ArrayList shipLocation() {
         ArrayList <String> location = new ArrayList<>();
         int number =(int) Math.random() * 7;
         location.add(String.valueOf(number));
