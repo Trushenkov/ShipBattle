@@ -27,7 +27,7 @@ public class Ship {
      * выстрела игрока и местоположения корабля не совпадают. "Потоплен", если  координата выстрела игрока и
      * местоположения корабля совпадают и ArrayList с местоположением корабля пустой (то есть пользователь попал в корабль  3 раза).
      */
-    public String check(String shot) {
+    public String checkForHit(String shot) {
         String result = "Мимо";
         int index = location.indexOf(shot);
         if (index != -1) {
