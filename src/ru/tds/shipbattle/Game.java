@@ -20,7 +20,6 @@ public class Game {
             countOfTry++;
         }
         System.out.println("Вы победили! Количество попыток: " + countOfTry);
-
     }
 
     /**
