@@ -10,9 +10,8 @@ import java.util.Scanner;
  */
 public class Game {
     public static void main(String[] args) {
-        ArrayList<String> locationOfShip = shipLocation();
         Ship ship = new Ship();
-        ship.setLocation(locationOfShip);
+        ship.setLocation(shipLocation());
         int countOfTry = 0;
         System.out.println(ship);
         while (!ship.getLocation().isEmpty()) {
