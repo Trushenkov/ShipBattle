@@ -18,6 +18,7 @@ public class Game {
             System.out.println(ship.checkForHit(input()));
             countOfTry++;
         }
+
         System.out.println("Вы победили! Количество попыток: " + countOfTry);
     }
 
