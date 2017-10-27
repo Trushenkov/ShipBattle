@@ -9,12 +9,12 @@ import java.util.Scanner;
  * @author Trushenkov Dmitry 15ИТ18
  */
 public class Game {
-
     public static void main(String[] args) {
         ArrayList<String> locationOfShip = shipLocation();
         Ship ship = new Ship();
         ship.setLocation(locationOfShip);
         int countOfTry = 0;
+        System.out.println(ship);
         while (!ship.getLocation().isEmpty()) {
             System.out.println(ship.checkForHit(input()));
             countOfTry++;
@@ -29,7 +29,7 @@ public class Game {
      */
     public static ArrayList shipLocation() {
         ArrayList <String> location = new ArrayList<>();
-        int number =(int) Math.random() * 7;
+        int number =(int) (Math.random() * 7);
         location.add(String.valueOf(number));
         location.add(String.valueOf(number +1 ));
         location.add(String.valueOf(number +2 ));
@@ -42,9 +42,9 @@ public class Game {
      * @return координата выстрела, введенная пользователем.
      */
     public static String input() {
-        Scanner sc = new Scanner(System.in);
+        Scanner scan = new Scanner(System.in);
         System.out.println("Введите координаты выстрела от 0 до 9: ");
-        String shot = sc.next();
+        String shot = scan.next();
         return shot;
     }
 }
