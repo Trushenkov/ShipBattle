@@ -42,7 +42,7 @@ public class Game {
     public static String input() {
         Scanner scan = new Scanner(System.in);
         System.out.println("Введите координаты выстрела от 0 до 9: ");
-        String shot = scan.next();
+        String shot = scan.nextLine();
         return shot;
     }
 }
