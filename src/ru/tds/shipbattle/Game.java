@@ -13,19 +13,17 @@ public class Game {
         Ship ship = new Ship();
         ship.setLocation(shipLocation());
         int countOfTry = 0;
-        System.out.println(ship);
         while (!ship.getLocation().isEmpty()) {
             System.out.println(ship.checkForHit(input()));
             countOfTry++;
         }
-
         System.out.println("Вы победили! Количество попыток: " + countOfTry);
     }
 
     /**
      * Метод для заполнения ArrayLista с местоположением корабля.
      *
-     * @return ArrayList  с местоположением корабля.
+     * @return ArrayList с местоположением корабля.
      */
     public static ArrayList shipLocation() {
         ArrayList <String> location = new ArrayList<>();
