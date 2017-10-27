@@ -13,10 +13,11 @@ public class Game {
         Ship ship = new Ship();
         ship.setLocation(shipLocation());
         int countOfTry = 0;
-        while (!ship.getLocation().isEmpty()) {
-            System.out.println(ship.checkForHit(input()));
+        String statusOfShip;
+        do {
+            System.out.println(statusOfShip= ship.checkForHit(input()));
             countOfTry++;
-        }
+        } while (statusOfShip!= "Потоплен");
         System.out.println("Вы победили! Количество попыток: " + countOfTry);
     }
 
