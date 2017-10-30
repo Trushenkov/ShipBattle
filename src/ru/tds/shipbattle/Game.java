@@ -1,7 +1,6 @@
 package ru.tds.shipbattle;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 /**
  * Класс, в котором реализована игра "Морской бой".
@@ -15,35 +14,23 @@ public class Game {
         int countOfTry = 0;
         String statusOfShip;
         do {
-            System.out.println(statusOfShip= ship.checkForHit(input()));
+            System.out.println(statusOfShip = ship.checkForHit(InputOfData.input()));
             countOfTry++;
-        } while (statusOfShip!= "Потоплен");
+        } while (statusOfShip != "Потоплен");
         System.out.println("Вы победили! Количество попыток: " + countOfTry);
     }
 
     /**
-     * Метод для заполнения ArrayLista с местоположением корабля.
+     * Метод для задания координат местоположения корабля.
      *
-     * @return ArrayList с местоположением корабля.
+     * @return ArrayList с координатами местоположения корабля.
      */
     public static ArrayList shipLocation() {
-        ArrayList <String> location = new ArrayList<>();
-        int number =(int) (Math.random() * 7);
+        ArrayList<String> location = new ArrayList<>();
+        int number = (int) (Math.random() * 7);
         location.add(String.valueOf(number));
-        location.add(String.valueOf(number +1 ));
-        location.add(String.valueOf(number +2 ));
+        location.add(String.valueOf(number + 1));
+        location.add(String.valueOf(number + 2));
         return location;
-    }
-
-    /**
-     * Метод для ввода пользователем координат выстрела.
-     *
-     * @return координата выстрела, введенная пользователем.
-     */
-    public static String input() {
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Введите координаты выстрела от 0 до 9: ");
-        String shot = scan.nextLine();
-        return shot;
     }
 }
