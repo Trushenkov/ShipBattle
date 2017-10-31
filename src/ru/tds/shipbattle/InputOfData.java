@@ -1,5 +1,8 @@
 package ru.tds.shipbattle;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.regex.*;
 import java.util.Scanner;
 
@@ -14,10 +17,10 @@ public class InputOfData {
      *
      * @return строка с координатами выстрела
      */
-    public static String input() {
+    public static String input() throws IOException {
         String string;
         do {
-            string = writing();
+            string = reader();
         } while (!isCheckup(string));
         return string;
     }
@@ -27,10 +30,10 @@ public class InputOfData {
      *
      * @return строка с координатами выстрела от 0 до 9.
      */
-    public static String writing() {
-        Scanner scan = new Scanner(System.in);
+    public static String reader() throws IOException {
+        BufferedReader reader= new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Введите координаты выстрела от 0 до 9: ");
-        return scan.nextLine();
+        return reader.readLine();
     }
 
     /**
