@@ -1,5 +1,6 @@
 package ru.tds.shipbattle;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -8,7 +9,7 @@ import java.util.ArrayList;
  * @author Trushenkov Dmitry 15ИТ18
  */
 public class Game {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Ship ship = new Ship();
         ship.setLocation(shipLocation());
         int countOfTry = 0;
